@@ -1,7 +1,7 @@
 from turtle import Turtle
 
-POSITIONS_ONE = [(-340, 0), (-340, -20), (-340, -40), (-340, -60)]
-POSITIONS_TWO = [(340, 0), (340, -20), (340, -40), (340, -60)]
+POSITIONS_ONE = [(-340, 30), (-340, 10), (-340, -10), (-340, -30)]
+POSITIONS_TWO = [(340, 30), (340, 10), (340, -10), (340, -30)]
 
 
 class StickOne:
