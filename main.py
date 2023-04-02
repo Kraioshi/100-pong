@@ -24,35 +24,34 @@ screen.onkey(key="s", fun=stick_one.move_down)
 screen.onkey(key="Up", fun=stick_two.move_up)
 screen.onkey(key="Down", fun=stick_two.move_down)
 
-
 game_is_on = True
 
 while game_is_on:
     screen.update()
-    time.sleep(0.02)
+    time.sleep(0)
     ball.initial_movement()
 
-    # Ball collision with walls
-    if ball.ball.ycor() > 190 or ball.ball.ycor() < - 190:
-        ball.wall_collision()
+    # Ball bouncing off the walls
+    if ball.ycor() > 190 or ball.ycor() < - 190:
+        ball.wall_bounce()
 
-    # Ball collision with verticals
-    if ball.ball.xcor() > 361:
+    # Adding score if ball crossed vertical line
+    if ball.xcor() > 361:
         r_score.add_right()
-        time.sleep(0.03)
+        time.sleep(0.1)
         ball.reset()
-    elif ball.ball.xcor() < -361:
+    elif ball.xcor() < -361:
         l_score.add_left()
-        time.sleep(0.03)
+        time.sleep(0.1)
         ball.reset()
 
-    # Ball collision with sticks
+    # Ball bouncing off the sticks
     for segments in stick_two.segments:
-        if segments.distance(ball.ball) < 10:
-            ball.stick_collision()
+        if ball.distance(segments) < 25 and ball.xcor() > 290:
+            ball.stick_bounce()
     for segments in stick_one.segments:
-        if segments.distance(ball.ball) < 10:
-            ball.stick_collision()
+        if segments.distance(ball) < 20 and ball.xcor() < -290:
+            ball.stick_bounce()
 
 
 screen.exitonclick()

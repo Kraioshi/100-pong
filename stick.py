@@ -75,3 +75,24 @@ class StickTwo:
                 seg_num.setheading(270)
                 seg_num.forward(20)
 
+
+# class StickThree(Turtle):
+#
+#     def __init__(self):
+#         super().__init__()
+#         self.shape('square')
+#         self.shapesize(stretch_wid=1, stretch_len=4)
+#         self.color('white')
+#         self.penup()
+#         self.goto(-240, 0)
+#         self.setheading(90)
+#
+#     def move_up(self):
+#         y = self.ycor()
+#         if y < MAX_Y - 30:
+#             self.forward(20)
+#
+#     def move_down(self):
+#         y = self.ycor()
+#         if y > MIN_Y + 30:
+#             self.back(20)
