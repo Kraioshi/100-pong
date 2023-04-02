@@ -1,4 +1,4 @@
-from turtle import Turtle, Screen
+from turtle import Screen
 from stick import StickOne, StickTwo
 from board import Board
 from ball import Ball
@@ -11,14 +11,12 @@ screen.title("Pong")
 screen.bgcolor('black')
 screen.tracer(0)
 
-
 stick_one = StickOne()
 stick_two = StickTwo()
 board = Board()
 ball = Ball()
 l_score = LeftScore()
 r_score = RightScore()
-
 
 screen.listen()
 screen.onkey(key="w", fun=stick_one.move_up)
@@ -28,6 +26,7 @@ screen.onkey(key="Down", fun=stick_two.move_down)
 
 
 game_is_on = True
+
 while game_is_on:
     screen.update()
     time.sleep(0.02)
@@ -47,7 +46,6 @@ while game_is_on:
         time.sleep(0.03)
         ball.reset()
 
-
     # Ball collision with sticks
     for segments in stick_two.segments:
         if segments.distance(ball.ball) < 10:
@@ -55,5 +53,6 @@ while game_is_on:
     for segments in stick_one.segments:
         if segments.distance(ball.ball) < 10:
             ball.stick_collision()
+
 
 screen.exitonclick()

@@ -2,6 +2,8 @@ from turtle import Turtle
 
 POSITIONS_ONE = [(-340, 30), (-340, 10), (-340, -10), (-340, -30)]
 POSITIONS_TWO = [(340, 30), (340, 10), (340, -10), (340, -30)]
+MIN_Y = -180
+MAX_Y = 180
 
 
 class StickOne:
@@ -25,17 +27,18 @@ class StickOne:
             self.segments.append(pad)
 
     def move_up(self):
-        print(self.head.ycor())
-        for seg_num in self.segments:
-            seg_num.setheading(90)
-            seg_num.forward(20)
-
-
+        y = self.head.ycor()
+        if y < MAX_Y:
+            for seg_num in self.segments:
+                seg_num.setheading(90)
+                seg_num.forward(20)
 
     def move_down(self):
-        for seg_num in self.segments[::-1]:
-            seg_num.setheading(270)
-            seg_num.forward(20)
+        y = self.tail.ycor()
+        if y > MIN_Y:
+            for seg_num in self.segments[::-1]:
+                seg_num.setheading(270)
+                seg_num.forward(20)
 
 
 class StickTwo:
@@ -59,12 +62,16 @@ class StickTwo:
             self.segments.append(pad)
 
     def move_up(self):
-        for seg_num in self.segments:
-            seg_num.setheading(90)
-            seg_num.forward(20)
+        y = self.head.ycor()
+        if y < MAX_Y:
+            for seg_num in self.segments:
+                seg_num.setheading(90)
+                seg_num.forward(20)
 
     def move_down(self):
-        for seg_num in self.segments[::-1]:
-            seg_num.setheading(270)
-            seg_num.forward(20)
+        y = self.tail.ycor()
+        if y > MIN_Y:
+            for seg_num in self.segments[::-1]:
+                seg_num.setheading(270)
+                seg_num.forward(20)
 

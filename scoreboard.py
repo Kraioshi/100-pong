@@ -1,7 +1,6 @@
 from turtle import Turtle
 
 FONT = ('Courier', 30, 'bold')
-ALIGNMENT = 'right'
 
 
 class LeftScore(Turtle):
