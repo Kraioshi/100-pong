@@ -47,10 +47,10 @@ while game_is_on:
 
     # Ball bouncing off the sticks
     for segments in stick_two.segments:
-        if segments.distance(ball) < 50 and ball.xcor() > 320:
+        if segments.distance(ball) < 19 and ball.xcor() > 320:
             ball.stick_bounce()
     for segments in stick_one.segments:
-        if segments.distance(ball) < 40 and ball.xcor() < -320:
+        if segments.distance(ball) < 19 and ball.xcor() < -320:
             ball.stick_bounce()
 
 
