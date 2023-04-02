@@ -28,9 +28,14 @@ TOP_LINE = [*range(-500, 500, 1)]
 game_is_on = True
 while game_is_on:
     screen.update()
-    time.sleep(0.2)
+    time.sleep(0.1)
     ball.initial_movement()
 
-
+    # Ball collision with walls
+    if ball.ball.ycor() > 190 or ball.ball.ycor() < -190:
+        ball.wall_collision()
+    # Ball collision with verticals
+    if ball.ball.xcor() > 361 or ball.ball.xcor() < -361:
+        ball.stick_collision()
 
 screen.exitonclick()

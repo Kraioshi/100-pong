@@ -1,9 +1,11 @@
 from turtle import Turtle
 import random
+
 NE = 45
 NW = 135
-SE = 225
-SW = 315
+SW = 225
+SE = 315
+
 
 class Ball:
 
@@ -11,6 +13,10 @@ class Ball:
         self.balls = []
         self.create_ball()
         self.ball = self.balls[0]
+        self.ball.setheading(45)
+
+        # self.xcor = self.ball.xcor()
+        # self.ycor = self.ball.ycor()
 
     def create_ball(self):
         ball = Turtle()
@@ -20,17 +26,28 @@ class Ball:
         self.balls.append(ball)
 
     def initial_movement(self):
-        self.ball.setheading(45)
         self.ball.forward(10)
 
     # collision with walls
-    def collision(self):
-        if self.ball.heading == 45:
-            self.ball.setheading(315)
-        elif self.ball.heading == 135:
-            self.ball.setheading(225)
-        elif self.ball.heading == 225:
-            self.ball.setheading(135)
-        elif self.ball.heading == 315:
-            self.ball.setheading(45)
+    def wall_collision(self):
+        if self.ball.heading() == NE:
+            self.ball.setheading(SE)
+        elif self.ball.heading() == NW:
+            self.ball.setheading(SW)
+        elif self.ball.heading() == SW:
+            self.ball.setheading(NW)
+        elif self.ball.heading() == SE:
+            self.ball.setheading(NE)
+
+    # Collision with stick (with vertical wall for now xD)
+    def stick_collision(self):
+        if self.ball.heading() == NE:
+            self.ball.setheading(NW)
+        elif self.ball.heading() == NW:
+            self.ball.setheading(NE)
+        elif self.ball.heading() == SW:
+            self.ball.setheading(SE)
+        elif self.ball.heading() == SE:
+            self.ball.setheading(SW)
+
 
