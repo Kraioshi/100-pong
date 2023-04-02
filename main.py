@@ -32,25 +32,25 @@ while game_is_on:
     ball.initial_movement()
 
     # Ball bouncing off the walls
-    if ball.ycor() > 190 or ball.ycor() < - 190:
+    if ball.ycor() > 190 or ball.ycor() < -190:
         ball.wall_bounce()
 
     # Adding score if ball crossed vertical line
-    if ball.xcor() > 361:
+    if ball.xcor() > 380:
         r_score.add_right()
         time.sleep(0.1)
         ball.reset()
-    elif ball.xcor() < -361:
+    elif ball.xcor() < -380:
         l_score.add_left()
         time.sleep(0.1)
         ball.reset()
 
     # Ball bouncing off the sticks
     for segments in stick_two.segments:
-        if ball.distance(segments) < 25 and ball.xcor() > 290:
+        if segments.distance(ball) < 50 and ball.xcor() > 320:
             ball.stick_bounce()
     for segments in stick_one.segments:
-        if segments.distance(ball) < 20 and ball.xcor() < -290:
+        if segments.distance(ball) < 40 and ball.xcor() < -320:
             ball.stick_bounce()
 
 

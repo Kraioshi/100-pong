@@ -23,31 +23,31 @@ class Ball(Turtle):
 
     # collision with walls
     def wall_bounce(self):
-        if self.heading() == NE:
-            self.setheading(SE)
-        elif self.heading() == NW:
-            self.setheading(SW)
-        elif self.heading() == SW:
-            self.setheading(NW)
-        elif self.heading() == SE:
-            self.setheading(NE)
+        if self.heading() == 45:
+            self.setheading(315)
+        elif self.heading() == 315:
+            self.setheading(45)
+        elif self.heading() == 225:
+            self.setheading(135)
+        elif self.heading() == 135:
+            self.setheading(225)
 
     # Collision with stick
     def stick_bounce(self):
-        if self.heading() == NE:
-            self.setheading(NW)
-            self.forward(20)
-        elif self.heading() == NW:
-            self.setheading(NE)
-            self.forward(20)
+        if self.heading() == 45:
+            self.setheading(135)
+            self.forward(5)
+        elif self.heading() == 135:
+            self.setheading(45)
+            self.forward(5)
 
-        elif self.heading() == SW:
-            self.setheading(SE)
-            self.forward(20)
+        elif self.heading() == 225:
+            self.setheading(315)
+            self.forward(5)
 
-        elif self.heading() == SE:
-            self.setheading(SW)
-            self.forward(20)
+        elif self.heading() == 315:
+            self.setheading(225)
+            self.forward(5)
 
 
     def reset(self):
