@@ -13,15 +13,13 @@ class Ball:
         self.balls = []
         self.create_ball()
         self.ball = self.balls[0]
-        self.ball.setheading(45)
-
-        # self.xcor = self.ball.xcor()
-        # self.ycor = self.ball.ycor()
+        self.ball.setheading(random.randrange(45, 315, 90))
 
     def create_ball(self):
         ball = Turtle()
         ball.speed("slow")
-        ball.shape("arrow")
+        ball.shape("circle")
+        ball.penup()
         ball.color("white")
         self.balls.append(ball)
 
@@ -50,4 +48,10 @@ class Ball:
         elif self.ball.heading() == SE:
             self.ball.setheading(SW)
 
+    def reset(self):
+        self.ball.home()
+        self.ball.setheading(random.randrange(45, 360, 90))
 
+
+if __name__ == "__main__":
+    print(NE)

@@ -25,9 +25,12 @@ class StickOne:
             self.segments.append(pad)
 
     def move_up(self):
+        print(self.head.ycor())
         for seg_num in self.segments:
             seg_num.setheading(90)
             seg_num.forward(20)
+
+
 
     def move_down(self):
         for seg_num in self.segments[::-1]:
